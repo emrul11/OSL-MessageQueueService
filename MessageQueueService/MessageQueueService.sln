@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueService.Publisher1", "MessageQueueService.Publisher1\MessageQueueService.Publisher1.csproj", "{2E0162EC-771C-418A-B579-670FB422A9EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueService.Consumer1", "MessageQueueService.Consumer1\MessageQueueService.Consumer1.csproj", "{78DC93F0-A12F-4F4A-9F4E-4499AF2472F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2E0162EC-771C-418A-B579-670FB422A9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E0162EC-771C-418A-B579-670FB422A9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E0162EC-771C-418A-B579-670FB422A9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78DC93F0-A12F-4F4A-9F4E-4499AF2472F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78DC93F0-A12F-4F4A-9F4E-4499AF2472F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78DC93F0-A12F-4F4A-9F4E-4499AF2472F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78DC93F0-A12F-4F4A-9F4E-4499AF2472F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

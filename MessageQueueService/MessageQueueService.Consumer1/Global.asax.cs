@@ -1,5 +1,4 @@
-﻿using MessageQueueService.Publisher1.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace MessageQueueService.Publisher1
+namespace MessageQueueService.Consumer1
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -17,7 +16,6 @@ namespace MessageQueueService.Publisher1
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            PublisherService.RegisterRabbitMq();
         }
     }
 }
