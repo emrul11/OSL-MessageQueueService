@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueService.Domain", "MessageQueueService.Domain\MessageQueueService.Domain.csproj", "{D27B93CC-DE49-4B6C-BFE2-E6EBBCBB8C26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueService.Infrastructure", "MessageQueueService.Infrastructure\MessageQueueService.Infrastructure.csproj", "{6619E977-220B-4967-8E05-7107B4663CE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueService.Common", "MessageQueueService.Common\MessageQueueService.Common.csproj", "{BB601373-C18D-4C24-A538-F556EF9317B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueService.Publisher", "MessageQueueService.Publisher\MessageQueueService.Publisher.csproj", "{8F93180A-59BB-4222-A657-3B129175B29E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueService.Consumer", "MessageQueueService.Consumer\MessageQueueService.Consumer.csproj", "{564E2810-A818-4396-98E6-B3F2D6D557CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueService.Web", "MessageQueueService.Web\MessageQueueService.Web.csproj", "{42A5665C-4081-4DC2-BE28-23B6D2494918}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D27B93CC-DE49-4B6C-BFE2-E6EBBCBB8C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D27B93CC-DE49-4B6C-BFE2-E6EBBCBB8C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D27B93CC-DE49-4B6C-BFE2-E6EBBCBB8C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D27B93CC-DE49-4B6C-BFE2-E6EBBCBB8C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6619E977-220B-4967-8E05-7107B4663CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6619E977-220B-4967-8E05-7107B4663CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6619E977-220B-4967-8E05-7107B4663CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6619E977-220B-4967-8E05-7107B4663CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB601373-C18D-4C24-A538-F556EF9317B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB601373-C18D-4C24-A538-F556EF9317B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB601373-C18D-4C24-A538-F556EF9317B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB601373-C18D-4C24-A538-F556EF9317B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F93180A-59BB-4222-A657-3B129175B29E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F93180A-59BB-4222-A657-3B129175B29E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F93180A-59BB-4222-A657-3B129175B29E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F93180A-59BB-4222-A657-3B129175B29E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{564E2810-A818-4396-98E6-B3F2D6D557CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{564E2810-A818-4396-98E6-B3F2D6D557CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{564E2810-A818-4396-98E6-B3F2D6D557CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{564E2810-A818-4396-98E6-B3F2D6D557CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42A5665C-4081-4DC2-BE28-23B6D2494918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42A5665C-4081-4DC2-BE28-23B6D2494918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42A5665C-4081-4DC2-BE28-23B6D2494918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42A5665C-4081-4DC2-BE28-23B6D2494918}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

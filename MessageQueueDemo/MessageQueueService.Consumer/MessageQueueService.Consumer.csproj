@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44326</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -70,7 +70,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consumers\BothChannelsConsumer1.cs" />
+    <Compile Include="Consumers\BothChannelsConsumer2.cs" />
+    <Compile Include="Consumers\ChannelAConsumer.cs" />
+    <Compile Include="Consumers\ChannelBConsumer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ConsumerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -96,7 +101,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1969</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1969/</IISUrl>
+          <IISUrl>https://localhost:44326/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
