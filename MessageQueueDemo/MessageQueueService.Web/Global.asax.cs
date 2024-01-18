@@ -1,4 +1,7 @@
-﻿using MessageQueueService.Web.Configure;
+﻿using MessageQueueService.Infrastructure.Connections;
+using MessageQueueService.Infrastructure.Initialization;
+using MessageQueueService.Infrastructure.Queues;
+using MessageQueueService.Web.Configure;
 using Serilog;
 using Serilog.Core;
 using System;
@@ -19,6 +22,20 @@ namespace MessageQueueService.Web
             {
                 SerilogConfig.Configure();
                 Log.Information("Application Starting");
+
+                // Manually instantiate dependencies
+                var rabbitMQConnection = new RabbitMQConnection();
+                var channelAQueue = new ChannelAQueue();
+                var channelBQueue = new ChannelBQueue();
+
+                var messageQueueServiceInitializer = 
+                    new MessageQueueServiceInitializer(rabbitMQConnection,
+                    channelAQueue, 
+                    channelBQueue);
+
+                // Use the initialized service as needed
+                messageQueueServiceInitializer.Initialize();
+
                 AreaRegistration.RegisterAllAreas();
                 FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
                 RouteConfig.RegisterRoutes(RouteTable.Routes);
