@@ -1,5 +1,6 @@
 ﻿using MessageQueueService.Infrastructure.Connections;
 using MessageQueueService.Infrastructure.Queues;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,14 +23,18 @@ namespace MessageQueueService.Infrastructure.Initialization
 
         public void Initialize()
         {
-            // Initialize RabbitMQ connection
-            var connection = _rabbitMQConnection.CreateConnection();
+            try
+            {
+                var connection = _rabbitMQConnection.CreateConnection();
 
-            // Initialize Channel A Queue
-            _channelAQueue.InitializeQueue(connection);
+                _channelAQueue.InitializeQueue(connection);
 
-            // Initialize Channel B Queue
-            _channelBQueue.InitializeQueue(connection);
+                _channelBQueue.InitializeQueue(connection);
+            }
+            catch (Exception ex)
+            {
+                Log.Information("Error during MessageQueueService initialization", ex);
+            }
         }
     }
 }

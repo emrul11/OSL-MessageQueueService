@@ -1,7 +1,9 @@
 ﻿using RabbitMQ.Client;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 
 namespace MessageQueueService.Infrastructure.Queues
@@ -12,10 +14,20 @@ namespace MessageQueueService.Infrastructure.Queues
 
         public void InitializeQueue(IConnection connection)
         {
-            using (var channel = connection.CreateModel())
+            try
             {
-                channel.QueueDeclare(_queueName, durable: true, exclusive: false, autoDelete: false, arguments: null);
-                // Add any additional configuration you need for Channel B Queue
+                using (var channel = connection.CreateModel())
+                {
+                    channel.QueueDeclare(_queueName,
+                        durable: true,
+                        exclusive: false,
+                        autoDelete: false,
+                        arguments: null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Information("Error initializing Channel B Queue", ex);
             }
         }
     }
