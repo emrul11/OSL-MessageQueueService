@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MessageQueueService.Common
+﻿namespace MessageQueueService.Common
 {
     public class MessageModel
     {

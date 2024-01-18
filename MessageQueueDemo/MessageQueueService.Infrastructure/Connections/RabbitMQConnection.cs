@@ -1,4 +1,5 @@
-﻿using RabbitMQ.Client;
+﻿using MessageQueueService.Common;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace MessageQueueService.Infrastructure.Connections
 {
     public class RabbitMQConnection
     {
-        private const string RabbitMQUri = "amqp://guest:guest@localhost:5672";
+        string rabbitMQUri = AppSettings.RabbitMQUri;
 
         public IConnection CreateConnection()
         {
@@ -16,7 +17,7 @@ namespace MessageQueueService.Infrastructure.Connections
             {
                 var factory = new ConnectionFactory
                 {
-                    Uri = new Uri(RabbitMQUri),
+                    Uri = new Uri(rabbitMQUri),
                     ClientProvidedName = "MessageQueueServiceDemo"
                 };
 
