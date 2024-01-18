@@ -1,18 +1,18 @@
-﻿using MessageQueueService.Common;
-using RabbitMQ.Client;
+﻿using RabbitMQ.Client;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
 
 namespace MessageQueueService.Infrastructure.Connections
 {
     public class RabbitMQConnection
     {
         private const string rabbitMQUri = "amqp://guest:guest@localhost:5672";
+        private IConnection _connection;
         public IConnection CreateConnection()
         {
+            if (_connection != null)
+            {
+                return _connection;
+            }
             try
             {
                 var factory = new ConnectionFactory
@@ -21,14 +21,19 @@ namespace MessageQueueService.Infrastructure.Connections
                     ClientProvidedName = "MessageQueueServiceDemo"
                 };
 
-                var connection = factory.CreateConnection();
-                return connection;
+                _connection = factory.CreateConnection();
+                return _connection;
             }
             catch (Exception ex)
             {
                 // Log the exception or handle it as appropriate
                 throw new Exception("Error creating RabbitMQ connection", ex);
             }
+        }
+        public IModel GetModel()
+        {
+            var con = CreateConnection();
+            return con.CreateModel();
         }
     }
 }

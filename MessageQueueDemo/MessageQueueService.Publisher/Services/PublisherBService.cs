@@ -9,16 +9,16 @@ namespace MessageQueueService.Publisher.Services
 {
     public class PublisherBService
     {
-        private readonly ChannelBPublisher _channelAPublisher;
+        private readonly ChannelBPublisher _channelBPublisher;
 
         public PublisherBService()
         {
-            _channelAPublisher = new ChannelBPublisher();
+            _channelBPublisher = new ChannelBPublisher();
         }
 
         public void PublishToChannels(MessageModel message)
         {
-            _channelAPublisher.PublishMessage(message);
+            _channelBPublisher.PublishMessage(message);
         }
     }
 }

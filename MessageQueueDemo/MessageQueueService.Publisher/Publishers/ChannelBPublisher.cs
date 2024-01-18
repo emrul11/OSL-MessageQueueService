@@ -23,7 +23,7 @@ namespace MessageQueueService.Publisher.Publishers
         {
             try
             {
-                using (var connection = _rabbitMQConnection.CreateConnection())
+                var connection = _rabbitMQConnection.CreateConnection();
                 using (var channel = connection.CreateModel())
                 {
                     channel.QueueDeclare(queue: _queueName,

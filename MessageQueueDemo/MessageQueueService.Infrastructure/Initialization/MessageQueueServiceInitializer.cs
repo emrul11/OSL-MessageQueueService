@@ -14,7 +14,9 @@ namespace MessageQueueService.Infrastructure.Initialization
         private readonly ChannelAQueue _channelAQueue;
         private readonly ChannelBQueue _channelBQueue;
                
-        public MessageQueueServiceInitializer(RabbitMQConnection rabbitMQConnection, ChannelAQueue channelAQueue, ChannelBQueue channelBQueue)
+        public MessageQueueServiceInitializer(RabbitMQConnection rabbitMQConnection, 
+            ChannelAQueue channelAQueue, 
+            ChannelBQueue channelBQueue)
         {
             _rabbitMQConnection = rabbitMQConnection;
             _channelAQueue = channelAQueue;

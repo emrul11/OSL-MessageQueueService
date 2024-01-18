@@ -35,7 +35,7 @@ namespace MessageQueueService.Web.Controllers
             {
                 var message = new MessageModel { Content = content };
                 _publisherAService.PublishToChannels(message);
-                return RedirectToAction("PublishMessage");
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
