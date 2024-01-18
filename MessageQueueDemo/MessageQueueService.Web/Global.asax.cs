@@ -1,4 +1,6 @@
 ﻿using MessageQueueService.Web.Configure;
+using Serilog;
+using Serilog.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +15,19 @@ namespace MessageQueueService.Web
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-            SerilogConfig.Configure();
+            try
+            {
+                SerilogConfig.Configure();
+                Log.Information("Application Starting");
+                AreaRegistration.RegisterAllAreas();
+                FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+                RouteConfig.RegisterRoutes(RouteTable.Routes);
+                BundleConfig.RegisterBundles(BundleTable.Bundles);
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Applicaiton Failed to start");
+            }
         }
     }
 }
