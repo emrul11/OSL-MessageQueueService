@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Message Queue Service";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message Queue Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #428bca;
+        }
+
+        .action-link {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #428bca;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .button:hover {
+                background-color: #3071a9;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Message Queue Service</h2>
+        <p>This is a demo application for message queue service.</p>
+
+        <div class="button-container">
+            <a href="@Url.Action("PublishMessageChannelA")" class="button">Publish Message to Channel A</a>
+            <a href="@Url.Action("PublishMessageChannelB")" class="button">Publish Message to Channel B</a>
+        </div>
+
+        <p class="action-link">
+            @Html.ActionLink("Go to Publish Message to Channel A", "PublishMessageChannelA")
+        </p>
+        <p class="action-link">
+            @Html.ActionLink("Go to Publish Message to Channel B", "PublishMessageChannelB")
+        </p>
+    </div>
+</body>
+</html>

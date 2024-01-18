@@ -10,10 +10,11 @@ namespace MessageQueueService.Web.Controllers
 {
     public class MessageQueueServiceController : Controller
     {
-        private readonly PublisherService _publisherService;
+        private readonly PublisherAService _publisherAService;
+        private readonly PublisherBService _publisherBService;
         public MessageQueueServiceController()
         {
-            _publisherService = new PublisherService();
+            _publisherAService = new PublisherAService();
         }
 
         public ActionResult Index()
@@ -22,23 +23,45 @@ namespace MessageQueueService.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult PublishMessage()
+        public ActionResult PublishMessageChannelA()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult PublishMessage(string content)
+        public ActionResult PublishMessageChannelA(string content)
         {
             try
             {
                 var message = new MessageModel { Content = content };
-                _publisherService.PublishToChannels(message);
+                _publisherAService.PublishToChannels(message);
                 return RedirectToAction("PublishMessage");
             }
             catch (Exception ex)
             {
-                return View("Error"); 
+                // Log or handle the exception as needed
+                return View("Error");
+            }
+        }
+        [HttpGet]
+        public ActionResult PublishMessageChannelB()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PublishMessageChannelB(string content)
+        {
+            try
+            {
+                var message = new MessageModel { Content = content };
+                _publisherBService.PublishToChannels(message);
+                return RedirectToAction("PublishMessage");
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception as needed
+                return View("Error");
             }
         }
     }

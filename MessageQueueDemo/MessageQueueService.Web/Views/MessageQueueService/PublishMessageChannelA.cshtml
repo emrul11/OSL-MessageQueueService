@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Publish Message";
+}
+
+<h2>Publish Message To ChannelAQueue</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label for="content">Content:</label>
+        <input type="text" name="content" />
+        <button type="submit">Publish Message</button>
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Back to Index", "Index")
+</p>
