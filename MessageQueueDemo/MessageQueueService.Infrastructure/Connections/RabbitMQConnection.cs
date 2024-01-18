@@ -2,6 +2,7 @@
 using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -9,8 +10,7 @@ namespace MessageQueueService.Infrastructure.Connections
 {
     public class RabbitMQConnection
     {
-        string rabbitMQUri = AppSettings.RabbitMQUri;
-
+        private const string rabbitMQUri = "amqp://guest:guest@localhost:5672";
         public IConnection CreateConnection()
         {
             try
