@@ -86,6 +86,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MessageQueueService.Common\MessageQueueService.Common.csproj">
+      <Project>{bb601373-c18d-4c24-a538-f556ef9317b2}</Project>
+      <Name>MessageQueueService.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageQueueService.Infrastructure\MessageQueueService.Infrastructure.csproj">
+      <Project>{6619e977-220b-4967-8e05-7107b4663ce4}</Project>
+      <Name>MessageQueueService.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

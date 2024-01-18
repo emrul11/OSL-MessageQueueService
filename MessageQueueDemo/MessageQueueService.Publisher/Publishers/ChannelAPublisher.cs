@@ -7,5 +7,6 @@ namespace MessageQueueService.Publisher.Publishers
 {
     public class ChannelAPublisher
     {
+       
     }
 }
