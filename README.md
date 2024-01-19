@@ -38,6 +38,7 @@ The project demonstrates the following features:
 
 ## Project Structure
 
+- **MessageQueueService.ShowConsumedMessage**: View consumed messages.
 - **MessageQueueService.Common**: Shared models and common utilities.
 - **MessageQueueService.Infrastructure.Connections**: Connection setup for RabbitMQ.
 - **MessageQueueService.Publisher**: Message publishers for Channel A and Channel B.
