@@ -1,21 +1,35 @@
-﻿using MessageQueueService.Consumer.Consumers;
+﻿using MessageQueueDemo.ShowConsumedMessage.Services;
+using Serilog;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MessageQueueDemo.ShowConsumedMessage
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
-            var channelAConsumer = new ChannelAConsumer();
-            var channelBConsumer = new ChannelBConsumer();
+            Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.Console()
+            .WriteTo.File("Logs\\log.txt", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
+            try
+            {
+                var consumerService = new MessageConsumerService();
 
-            Console.WriteLine("Press [Enter] to exit.");
-            Console.ReadLine();
+                // Start consumers
+                consumerService.StartConsumers();
+
+                Log.Information("Application Starting");
+                Console.WriteLine("Press [Enter] to exit.");
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Applicaiton Failed to start");
+            }
+
         }
     }
 }

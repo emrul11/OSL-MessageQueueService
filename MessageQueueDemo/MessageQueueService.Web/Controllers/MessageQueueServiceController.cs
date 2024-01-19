@@ -34,7 +34,10 @@ namespace MessageQueueService.Web.Controllers
             try
             {
                 var message = new MessageModel { Content = content };
-                _publisherService.PublishToChannelA(message);
+                for (int i = 0; i < 10; i++)
+                {
+                    _publisherService.PublishToChannelA(message);
+                }
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -55,7 +58,10 @@ namespace MessageQueueService.Web.Controllers
             try
             {
                 var message = new MessageModel { Content = content };
-                _publisherService.PublishToChannelB(message);
+                for (int i = 0; i < 10; i++) {
+                    _publisherService.PublishToChannelB(message);
+                }
+                
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
