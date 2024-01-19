@@ -1,18 +1,13 @@
 ﻿using MessageQueueService.Common;
-using MessageQueueService.Infrastructure.Connections;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace MessageQueueService.Consumer.Consumers
 {
-    public class ChannelAConsumer : MessageConsumerBase, IChannelAConsumer
+    public class ChannelAConsumer : MessageConsumerBase, IMessageConsumer
     {
-        public ChannelAConsumer(string queueName) : base("ChannelAQueue")
+        public ChannelAConsumer(ILogger logger) : base("ChannelAQueue", logger)
         {
         }
 

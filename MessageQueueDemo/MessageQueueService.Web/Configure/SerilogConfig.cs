@@ -11,7 +11,7 @@ namespace MessageQueueService.Web.Configure
             string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs/log.txt");
 
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
+                .MinimumLevel.Information()
                 .WriteTo.Console()
                 .WriteTo.File(logFilePath, rollingInterval: RollingInterval.Day)
                 .CreateLogger();

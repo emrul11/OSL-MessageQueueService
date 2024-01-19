@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publishers\BaseMessagePublisher.cs" />
     <Compile Include="Publishers\ChannelAPublisher.cs" />
     <Compile Include="Publishers\ChannelBPublisher.cs" />
     <Compile Include="Services\PublisherService.cs" />

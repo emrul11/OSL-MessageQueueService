@@ -1,14 +1,12 @@
 ﻿using MessageQueueService.Consumer.Consumers;
+using MessageQueueService.Consumer.Services;
 using MessageQueueService.Infrastructure.Connections;
 using MessageQueueService.Infrastructure.Initialization;
 using MessageQueueService.Infrastructure.Queues;
 using MessageQueueService.Web.Configure;
 using Serilog;
-using Serilog.Core;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -29,16 +27,23 @@ namespace MessageQueueService.Web
                 var channelAQueue = new ChannelAQueue();
                 var channelBQueue = new ChannelBQueue();
 
-                var messageQueueServiceInitializer = 
+                var messageQueueServiceInitializer =
                     new MessageQueueServiceInitializer(rabbitMQConnection,
-                    channelAQueue, 
+                    channelAQueue,
                     channelBQueue);
 
                 // Use the initialized service as needed
                 messageQueueServiceInitializer.Initialize();
 
-                ChannelAConsumer channelAConsumer = new ChannelAConsumer("ChannelAConsumer");
-                channelAConsumer.ConsumeMessage();
+                var consumers = new List<IMessageConsumer>
+                {
+                    new ChannelAConsumer(Log.Logger),
+                    new ChannelBConsumer(Log.Logger),
+                    // Add other consumer instances as needed
+                };
+
+                var consumerService = new ConsumerService(consumers, Log.Logger);
+                consumerService.StartConsumers();
 
                 AreaRegistration.RegisterAllAreas();
                 FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
