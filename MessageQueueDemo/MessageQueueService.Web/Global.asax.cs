@@ -37,7 +37,7 @@ namespace MessageQueueService.Web
                 // Use the initialized service as needed
                 messageQueueServiceInitializer.Initialize();
 
-                ChannelAConsumer channelAConsumer = new ChannelAConsumer();
+                ChannelAConsumer channelAConsumer = new ChannelAConsumer("ChannelAConsumer");
                 channelAConsumer.ConsumeMessage();
 
                 AreaRegistration.RegisterAllAreas();

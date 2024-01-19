@@ -6,11 +6,15 @@ using System.Web;
 
 namespace MessageQueueService.Consumer.Consumers
 {
-    public class ChannelBConsumer
+    public class ChannelBConsumer : MessageConsumerBase, IMessageConsumer
     {
-        public void ConsumeMessage(MessageModel message)
+        public ChannelBConsumer(string queueName) : base("ChannelBQueue")
         {
-            // Implement logic to consume message from Channel B
+        }
+
+        public override void ConsumeMessage()
+        {
+            throw new NotImplementedException();
         }
     }
 }
