@@ -9,93 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message Queue Service</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #495057;
-            margin: 0;
-            padding: 0;
-        }
+        /* Your existing styles */
 
-        header {
-            background-color: #007bff;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-
-        h2 {
-            color: #007bff;
-        }
-
-        .button-container {
+        /* Add a new style for the button container */
+        .button-container-extended {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             margin-top: 20px;
-        }
-
-        .button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-            .button:hover {
-                background-color: #0056b3;
-            }
-
-        .form-container {
-            margin-top: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #007bff;
-        }
-
-        input {
-            padding: 10px;
-            margin-bottom: 20px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        button[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-            button[type="submit"]:hover {
-                background-color: #0056b3;
-            }
-
-        .action-link {
-            display: block;
-            margin-top: 10px;
-            color: #007bff;
-            text-decoration: none;
         }
     </style>
 </head>
@@ -106,9 +26,10 @@
 
     <div class="container">
         <h2>Welcome to Message Queue Service</h2>
-        <p>This is a demo application for message queue service.</p>
+        <p>This is a demo application for the message queue service.</p>
 
         <div class="form-container">
+            <!-- Form for Channel A -->
             @using (Html.BeginForm("PublishMessageChannelA", "MessageQueueService"))
             {
                 <label for="contentA">Content for Channel A:</label>
@@ -116,14 +37,36 @@
                 <button type="submit">Publish to Channel A</button>
             }
 
+            <!-- Form for Channel A2 -->
+            @using (Html.BeginForm("PublishMessageChannelA2", "MessageQueueService"))
+            {
+                <label for="contentA2">Content for Channel A2:</label>
+                <input type="text" name="content" id="contentA2" required />
+                <button type="submit">Publish to Channel A2</button>
+            }
+
+            <!-- Form for Channel B -->
             @using (Html.BeginForm("PublishMessageChannelB", "MessageQueueService"))
             {
                 <label for="contentB">Content for Channel B:</label>
                 <input type="text" name="content" id="contentB" required />
                 <button type="submit">Publish to Channel B</button>
             }
+
+            <!-- Form for Channel B2 -->
+            @using (Html.BeginForm("PublishMessageChannelB2", "MessageQueueService"))
+            {
+                <label for="contentB2">Content for Channel B2:</label>
+                <input type="text" name="content" id="contentB2" required />
+                <button type="submit">Publish to Channel B2</button>
+            }
         </div>
 
+        <!-- Button container for better alignment -->
+        <div class="button-container-extended">
+            <a href="@Url.Action("PublishMessageChannelA")" class="button">Go to Publish Message to Channel A</a>
+            <a href="@Url.Action("PublishMessageChannelB")" class="button">Go to Publish Message to Channel B</a>
+        </div>
     </div>
 </body>
 </html>

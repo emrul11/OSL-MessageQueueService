@@ -47,6 +47,30 @@ namespace MessageQueueService.Web.Controllers
             }
         }
         [HttpGet]
+        public ActionResult PublishMessageChannelA2()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PublishMessageChannelA2(string content)
+        {
+            try
+            {
+                var message = new MessageModel { Content = content };
+                for (int i = 0; i < 10; i++)
+                {
+                    _publisherService.PublishToChannelA2(message);
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception as needed
+                return View("Error");
+            }
+        }
+        [HttpGet]
         public ActionResult PublishMessageChannelB()
         {
             return View();
@@ -67,6 +91,31 @@ namespace MessageQueueService.Web.Controllers
             catch (Exception ex)
             {
                 // Log or handle the exception as needed
+                return View("Error");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult PublishMessageChannelB2()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PublishMessageChannelB2(string content)
+        {
+            try
+            {
+                var message = new MessageModel { Content = content };
+                for (int i = 0; i < 10; i++)
+                {
+                    _publisherService.PublishToChannelB2(message);
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {                
                 return View("Error");
             }
         }
