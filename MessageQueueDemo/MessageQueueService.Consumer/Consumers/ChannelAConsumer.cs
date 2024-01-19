@@ -21,14 +21,15 @@ namespace MessageQueueService.Consumer.Consumers
             {
                 var body = ea.Body;
                 var messageFromQueue = System.Text.Encoding.UTF8.GetString(body.ToArray());
+                Log.Information(messageFromQueue);
 
                 if (messageFromQueue != null) {
                     var messageModel = Newtonsoft.Json.JsonConvert.DeserializeObject<MessageModel>(messageFromQueue);
-                    Console.Write(messageModel);
+                   
                     HandleMessage(messageModel);
 
                     //Acknowledge the message to RabbitMQ
-                    _channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+                    //_channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
                 }
                 
             };

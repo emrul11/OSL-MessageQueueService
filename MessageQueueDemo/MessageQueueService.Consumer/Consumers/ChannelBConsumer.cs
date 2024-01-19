@@ -28,7 +28,7 @@ namespace MessageQueueService.Consumer.Consumers
                     HandleMessage(messageModel);
 
                     //Acknowledge the message to RabbitMQ
-                    _channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+                   // _channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
                 }
             };
 

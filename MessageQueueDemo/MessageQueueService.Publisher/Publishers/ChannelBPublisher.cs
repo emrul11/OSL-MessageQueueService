@@ -1,5 +1,6 @@
 ﻿using MessageQueueService.Common;
 using MessageQueueService.Infrastructure.Connections;
+using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,8 @@ namespace MessageQueueService.Publisher.Publishers
                         autoDelete: false,
                         arguments: null);
 
-                    var body = Encoding.UTF8.GetBytes(message.Content);
+                    var jsonString = JsonConvert.SerializeObject(message);
+                    var body = Encoding.UTF8.GetBytes(jsonString);
 
                     var properties = channel.CreateBasicProperties();
                     properties.Persistent = true;
