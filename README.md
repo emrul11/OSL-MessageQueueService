@@ -59,7 +59,6 @@ The project demonstrates the following features:
 ## Contributors
 
 - [Md. Emrul Kabir](https://github.com/emrul11)
--
 
 ## License
 

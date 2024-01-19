@@ -1,6 +1,5 @@
 ﻿using RabbitMQ.Client;
 using Serilog;
-using System;
 
 namespace MessageQueueService.Infrastructure.Queues
 {
@@ -8,23 +7,20 @@ namespace MessageQueueService.Infrastructure.Queues
     {
         private readonly string _queueName = "ChannelAQueue";
 
-        public void InitializeQueue(IConnection connection)
+        public void InitializeQueue(IModel connection)
         {
             try
             {
-                using (var channel = connection.CreateModel())
-                {
-                    channel.QueueDeclare(_queueName, 
-                        durable: true, 
-                        exclusive: false, 
-                        autoDelete: false, 
-                        arguments: null);
-                }
+                connection.QueueDeclare(_queueName,
+                    durable: true,
+                    exclusive: false,
+                    autoDelete: false,
+                    arguments: null);            
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Log.Information("Error initializing Channel A Queue", ex);
             }
-        }
+}
     }
 }

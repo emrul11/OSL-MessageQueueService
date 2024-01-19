@@ -7,16 +7,22 @@ using System.Web;
 
 namespace MessageQueueService.Publisher.Services
 {
-    public class PublisherBService
+    public class PublisherService
     {
+        private readonly ChannelAPublisher _channelAPublisher;
         private readonly ChannelBPublisher _channelBPublisher;
 
-        public PublisherBService()
+        public PublisherService()
         {
+            _channelAPublisher = new ChannelAPublisher();
             _channelBPublisher = new ChannelBPublisher();
         }
+        public void PublishToChannelA(MessageModel message)
+        {
+            _channelAPublisher.PublishMessage(message);
+        }
 
-        public void PublishToChannels(MessageModel message)
+        public void PublishToChannelB(MessageModel message)
         {
             _channelBPublisher.PublishMessage(message);
         }

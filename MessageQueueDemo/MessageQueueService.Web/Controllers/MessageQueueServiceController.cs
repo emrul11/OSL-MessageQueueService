@@ -10,11 +10,11 @@ namespace MessageQueueService.Web.Controllers
 {
     public class MessageQueueServiceController : Controller
     {
-        private readonly PublisherAService _publisherAService;
-        private readonly PublisherBService _publisherBService;
+        private readonly PublisherService _publisherService;
+        
         public MessageQueueServiceController()
         {
-            _publisherAService = new PublisherAService();
+            _publisherService = new PublisherService();
         }
 
         public ActionResult Index()
@@ -34,7 +34,7 @@ namespace MessageQueueService.Web.Controllers
             try
             {
                 var message = new MessageModel { Content = content };
-                _publisherAService.PublishToChannels(message);
+                _publisherService.PublishToChannelA(message);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -55,8 +55,8 @@ namespace MessageQueueService.Web.Controllers
             try
             {
                 var message = new MessageModel { Content = content };
-                _publisherBService.PublishToChannels(message);
-                return RedirectToAction("PublishMessage");
+                _publisherService.PublishToChannelB(message);
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {

@@ -12,13 +12,12 @@ namespace MessageQueueService.Infrastructure.Queues
     {
         private readonly string _queueName = "ChannelBQueue";
 
-        public void InitializeQueue(IConnection connection)
+        public void InitializeQueue(IModel connection)
         {
             try
             {
-                using (var channel = connection.CreateModel())
                 {
-                    channel.QueueDeclare(_queueName,
+                    connection.QueueDeclare(_queueName,
                         durable: true,
                         exclusive: false,
                         autoDelete: false,

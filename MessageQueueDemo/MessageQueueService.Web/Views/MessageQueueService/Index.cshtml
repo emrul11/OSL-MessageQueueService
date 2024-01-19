@@ -3,19 +3,31 @@
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message Queue Service</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
         }
 
         .container {
             max-width: 800px;
-            margin: 50px auto;
+            margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -23,51 +35,95 @@
         }
 
         h2 {
-            color: #428bca;
-        }
-
-        .action-link {
-            display: block;
-            margin-top: 10px;
+            color: #007bff;
         }
 
         .button-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             margin-top: 20px;
         }
 
         .button {
-            padding: 10px;
+            padding: 10px 20px;
             font-size: 16px;
-            background-color: #428bca;
+            background-color: #007bff;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
             .button:hover {
-                background-color: #3071a9;
+                background-color: #0056b3;
             }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #007bff;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            button[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+        .action-link {
+            display: block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Message Queue Service</h1>
+    </header>
+
     <div class="container">
         <h2>Welcome to Message Queue Service</h2>
         <p>This is a demo application for message queue service.</p>
 
-        <div class="button-container">
-            <a href="@Url.Action("PublishMessageChannelA")" class="button">Publish Message to Channel A</a>
-            <a href="@Url.Action("PublishMessageChannelB")" class="button">Publish Message to Channel B</a>
+        <div class="form-container">
+            @using (Html.BeginForm("PublishMessageChannelA", "MessageQueueService"))
+            {
+                <label for="contentA">Content for Channel A:</label>
+                <input type="text" name="content" id="contentA" required />
+                <button type="submit">Publish to Channel A</button>
+            }
+
+            @using (Html.BeginForm("PublishMessageChannelB", "MessageQueueService"))
+            {
+                <label for="contentB">Content for Channel B:</label>
+                <input type="text" name="content" id="contentB" required />
+                <button type="submit">Publish to Channel B</button>
+            }
         </div>
 
-        <p class="action-link">
-            @Html.ActionLink("Go to Publish Message to Channel A", "PublishMessageChannelA")
-        </p>
-        <p class="action-link">
-            @Html.ActionLink("Go to Publish Message to Channel B", "PublishMessageChannelB")
-        </p>
     </div>
 </body>
 </html>

@@ -1,18 +1,13 @@
 ﻿@{
-    ViewBag.Title = "Publish Message";
+    ViewBag.Title = "Publish Message to Channel B";    
 }
 
-<h2>Publish Message To ChannelBQueue</h2>
-
-@using (Html.BeginForm("PublishMessageChannelB", "MessageQueueService"))
+<h2>Publish Message to Channel B</h2>
+@using (Html.BeginForm())
 {
     <div>
         <label for="content">Content:</label>
         <input type="text" name="content" />
-        <button type="submit">Publish Message</button>
-    </div>
+        <button type="submit">Publish to B</button>
+    </div>    
 }
-
-<p>
-    @Html.ActionLink("Back to Index", "Index")
-</p>

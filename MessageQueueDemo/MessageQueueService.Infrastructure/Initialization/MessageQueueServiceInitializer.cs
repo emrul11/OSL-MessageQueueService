@@ -27,7 +27,7 @@ namespace MessageQueueService.Infrastructure.Initialization
         {
             try
             {
-                var connection = _rabbitMQConnection.CreateConnection();
+                var connection = _rabbitMQConnection.GetModel();
 
                 _channelAQueue.InitializeQueue(connection);
 
