@@ -28,7 +28,7 @@ The project demonstrates the following features:
 
 3. Configure RabbitMQ:
 
-   - Install RabbitMQ. docker run --hostname rabbit --name rabbit-server -p 15672:15672 -p 5672:5672 rabbitmq:3.12.12-management
+   - Install RabbitMQ. In command line run this command. - docker run --hostname rabbit --name rabbit-server -p 15672:15672 -p 5672:5672 rabbitmq:3.12.12-management
    - Update RabbitMQ connection details in the project as needed. (MessageQueueService/Infrastructure/Connections/RabbitMQConnection.cs)
 
 4. Build and Run the Solution:
@@ -49,7 +49,7 @@ The project demonstrates the following features:
 
 1. Open the web application in your browser.
 2. Use the provided UI to publish messages to Channel A and Channel B.
-3. Consumers will automatically process the messages and print them in the console.
+3. Run the MessageQueueService.ShowConsumedMessage to see consumed messages both from channel A and B
 
 ## Additional Notes
 
