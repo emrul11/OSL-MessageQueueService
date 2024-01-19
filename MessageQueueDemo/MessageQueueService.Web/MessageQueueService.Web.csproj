@@ -149,7 +149,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Configure\SerilogConfig.cs" />
-    <Compile Include="Controllers\ConsumeMessageController.cs" />
     <Compile Include="Controllers\MessageQueueServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,7 +206,6 @@
     <Content Include="Views\MessageQueueService\PublishMessageChannelA.cshtml" />
     <Content Include="Views\MessageQueueService\PublishMessageChannelB.cshtml" />
     <Content Include="Views\MessageQueueService\Index.cshtml" />
-    <Content Include="Views\ConsumeMessage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,10 +243,6 @@
     <ProjectReference Include="..\MessageQueueService.Common\MessageQueueService.Common.csproj">
       <Project>{bb601373-c18d-4c24-a538-f556ef9317b2}</Project>
       <Name>MessageQueueService.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MessageQueueService.Consumer\MessageQueueService.Consumer.csproj">
-      <Project>{564e2810-a818-4396-98e6-b3f2d6d557cb}</Project>
-      <Name>MessageQueueService.Consumer</Name>
     </ProjectReference>
     <ProjectReference Include="..\MessageQueueService.Infrastructure\MessageQueueService.Infrastructure.csproj">
       <Project>{6619e977-220b-4967-8e05-7107b4663ce4}</Project>

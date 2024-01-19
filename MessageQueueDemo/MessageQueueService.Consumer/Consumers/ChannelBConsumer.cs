@@ -7,7 +7,7 @@ namespace MessageQueueService.Consumer.Consumers
 {
     public class ChannelBConsumer : MessageConsumerBase, IMessageConsumer
     {
-        public ChannelBConsumer(ILogger logger) : base("ChannelBQueue", logger)
+        public ChannelBConsumer() : base("ChannelBQueue")
         {
         }
 

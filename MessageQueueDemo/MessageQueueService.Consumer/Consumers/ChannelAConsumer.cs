@@ -2,17 +2,20 @@
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using Serilog;
+using System;
+using System.Threading.Tasks;
 
 namespace MessageQueueService.Consumer.Consumers
 {
     public class ChannelAConsumer : MessageConsumerBase, IMessageConsumer
     {
-        public ChannelAConsumer(ILogger logger) : base("ChannelAQueue", logger)
+        public ChannelAConsumer() : base("ChannelAQueue")
         {
         }
 
         public override void ConsumeMessage()
         {
+            Task.Delay(TimeSpan.FromSeconds(5)).Wait();
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += (model, ea) =>
             {

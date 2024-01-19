@@ -111,7 +111,6 @@
     <Compile Include="Consumers\IMessageConsumer.cs" />
     <Compile Include="Consumers\MessageConsumerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ConsumerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

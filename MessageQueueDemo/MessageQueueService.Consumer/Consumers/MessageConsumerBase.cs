@@ -17,12 +17,11 @@ namespace MessageQueueService.Consumer.Consumers
         protected readonly string _queueName;
         protected readonly ILogger _logger;
 
-        protected MessageConsumerBase(string queueName, ILogger logger)
+        protected MessageConsumerBase(string queueName)
         {
             _rabbitMQConnection = new RabbitMQConnection();
             _channel = _rabbitMQConnection.GetModel();
-            _queueName = queueName;
-            _logger = logger;
+            _queueName = queueName;           
 
             _channel.QueueDeclare(queue: _queueName,
                         durable: true,

@@ -1,6 +1,4 @@
-﻿using MessageQueueService.Consumer.Consumers;
-using MessageQueueService.Consumer.Services;
-using MessageQueueService.Infrastructure.Connections;
+﻿using MessageQueueService.Infrastructure.Connections;
 using MessageQueueService.Infrastructure.Initialization;
 using MessageQueueService.Infrastructure.Queues;
 using MessageQueueService.Web.Configure;
@@ -34,16 +32,6 @@ namespace MessageQueueService.Web
 
                 // Use the initialized service as needed
                 messageQueueServiceInitializer.Initialize();
-
-                var consumers = new List<IMessageConsumer>
-                {
-                    new ChannelAConsumer(Log.Logger),
-                    new ChannelBConsumer(Log.Logger),
-                    // Add other consumer instances as needed
-                };
-
-                var consumerService = new ConsumerService(consumers, Log.Logger);
-                consumerService.StartConsumers();
 
                 AreaRegistration.RegisterAllAreas();
                 FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
